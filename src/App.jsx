@@ -7,7 +7,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import List from "./pages/List";
 // Data fake
-import sourceEpaves from "./datas/epaves-ouest-france.json";
+import sourceEpaves from "./datas/epaves-zee.json";
 
 function App() {
   const [loading, setLoading] = useState(true);
