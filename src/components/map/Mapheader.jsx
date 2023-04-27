@@ -7,11 +7,12 @@ import {
   clusterCountLayer,
   clusterLayer,
   unclusteredPointLayer,
+  unclusteredPointLayerText
 } from "./mapstyles";
 import MapControls from "./MapControls";
 
 export const Mapheader = ({ epaves }) => {
-  const [hoverInfo, setHoverInfo] = useState(null);
+  const [hoverInfo, setHoverInfo] = useState({});
   const [point, setPoint] = useState(null);
   const [cursor, setCursor] = useState('auto');
 
@@ -66,10 +67,11 @@ export const Mapheader = ({ epaves }) => {
           <Layer {...clusterLayer} />
           <Layer {...clusterCountLayer} />
           <Layer {...unclusteredPointLayer} />
+          <Layer {...unclusteredPointLayerText} />
         </Source>
       </Map>
 
-      {hoverInfo && <MapControls {...hoverInfo} />}
+      {<MapControls {...hoverInfo} />}
     </section>
   );
 };

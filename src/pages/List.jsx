@@ -17,19 +17,19 @@ function List({ epaves }) {
   const [filtres, setFiltres] = useState({});
 
   useEffect(() => {
-    let newEpaves = epaves.features.filter((epave, i) => {
-      let correspondance = true;
-      for (let critere in filtres) {
-        if (filtres[critere].value === "") continue;
-        switch (filtres[critere].type) {
-          case "between":
+    let newEpaves = epaves.features.filter((epave, i) => { // Effet - 1 
+      let correspondance = true; // Effet - 2
+      for (let critere in filtres) { // Effet - 3
+        if (filtres[critere].value === "") continue; // Effet - 4
+        switch (filtres[critere].type) { // Effet - 5
+          case "between": // Effet - 6
             if (
               epave.properties[critere] < filtres[critere].value[0] ||
               epave.properties[critere] > filtres[critere].value[1]
             )
               correspondance = false;
             break;
-          case "egal":
+          case "egal": // Effet - 7
             if (epave.properties[critere] === null) {
               correspondance = false;
               break;
@@ -44,9 +44,9 @@ function List({ epaves }) {
         }
       }
 
-      return correspondance;
+      return correspondance; // Effet - 8
     });
-    setEpavesFiltered(newEpaves);
+    setEpavesFiltered(newEpaves); // Effet - 9
   }, [filtres]);
 
   const handleFiltresChange = (e) => {

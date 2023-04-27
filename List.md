@@ -53,6 +53,19 @@ Pour cela nous utilisons un switch afin d'éviter un usage intempestif de if / e
 switch (filtres[critere].type) {...}
 ```
 
+Effet - 6
+Cas n°1 de notre exmple, le type vaut between, nous gérons donc le cas en faisant une vérification double car nous cherchons un interval. Si trop petit ou trop grand la ligne n'est pas retournée dans le nouveau tableau. Ceci est determiné par le passage de la variable correspondance à false.
+```
+case "between":
+    if (
+        epave.properties[critere] < filtres[critere].value[0] ||
+        epave.properties[critere] > filtres[critere].value[1]
+    )
+        correspondance = false;
+    break;
+```
+
+Effet 7 - 
 
  
 
